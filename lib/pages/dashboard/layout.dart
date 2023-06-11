@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:one_gate_system/models/api_response.dart';
 import 'package:one_gate_system/models/member.dart';
-import 'package:one_gate_system/pages/dashboard/components/dashboard2.dart';
+import 'package:one_gate_system/pages/dashboard/components/dashboard.dart';
 import 'package:one_gate_system/pages/product/product.dart';
 import 'package:one_gate_system/services/auth.dart';
 import 'package:one_gate_system/shared/constants.dart';

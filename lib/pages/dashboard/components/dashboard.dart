@@ -14,16 +14,12 @@ class PageDashboard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // textHelper('Hi Customer! - 2',
-          //     size: fntSizeDefault3, weight: FontWeight.bold),
-          // const SizedBox(height: 5.0),
-          // textHelper('Last login: ${DateTime.now()}',
-          //     color: Colors.grey, style: FontStyle.italic),
-          // const SizedBox(height: 30.0),
-          // textHelper(
-          //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer orci velit, varius quis urna eu, lobortis finibus quam.',
-          //     size: fntSizeDefault),
-          // const SizedBox(height: 50.0),
+          textHelper('Beranda', size: 30.0, weight: FontWeight.bold),
+          const SizedBox(height: 50.0),
+          textHelper(
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer orci velit, varius quis urna eu, lobortis finibus quam.',
+              size: fntSizeDefault),
+          const SizedBox(height: 50.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
