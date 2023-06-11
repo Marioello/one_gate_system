@@ -102,22 +102,12 @@ class _NavBarState extends State<NavBar> {
                             return AlertDialog(
                               backgroundColor: Colors.purple.shade50,
                               scrollable: true,
-                              // title: Text(
-                              //   'Login',
-                              //   // style: TextStyle(color: colorHelper('#642e6a')),
-                              // ),
                               title: textHelper('Login', size: 20.0),
                               content: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Form(
                                   child: Column(
                                     children: [
-                                      // TextFormField(
-                                      //   decoration: const InputDecoration(
-                                      //     labelText: 'Name',
-                                      //     icon: Icon(Icons.account_box),
-                                      //   ),
-                                      // ),
                                       TextFormField(
                                         controller: emailController,
                                         decoration: const InputDecoration(
@@ -180,78 +170,6 @@ class _NavBarState extends State<NavBar> {
                           letterSpacing: 1,
                           fontFamily: 'Montserrat-Bold'),
                     ),
-                    // child: Material(
-                    //   color: Colors.transparent,
-                    //   child: InkWell(
-                    //     onTap: () {
-                    //       showDialog(
-                    //           context: context,
-                    //           builder: (BuildContext context) {
-                    //             return AlertDialog(
-                    //               content: Stack(
-                    //                 // overflow: Overflow.visible,
-                    //                 children: [
-                    //                   Positioned(
-                    //                     right: -40.0,
-                    //                     top: -40.0,
-                    //                     child: InkResponse(
-                    //                       onTap: () {
-                    //                         Navigator.of(context).pop();
-                    //                       },
-                    //                       child: const CircleAvatar(
-                    //                         backgroundColor: Colors.red,
-                    //                         child: Icon(Icons.close),
-                    //                       ),
-                    //                     ),
-                    //                   ),
-                    //                   Form(
-                    //                     key: _formKey,
-                    //                     child: Column(
-                    //                       mainAxisSize: MainAxisSize.min,
-                    //                       children: [
-                    //                         Padding(
-                    //                           padding:
-                    //                               const EdgeInsets.all(8.0),
-                    //                           child: TextFormField(),
-                    //                         ),
-                    //                         Padding(
-                    //                           padding:
-                    //                               const EdgeInsets.all(8.0),
-                    //                           child: TextFormField(
-                    //                             obscureText: true,
-                    //                           ),
-                    //                         ),
-                    //                         Padding(
-                    //                           padding:
-                    //                               const EdgeInsets.all(8.0),
-                    //                           child: ElevatedButton(
-                    //                             child: const Text("Login"),
-                    //                             onPressed: () {
-                    //                               // if (_formKey.currentState
-                    //                               //     .validate()) {
-                    //                               //   _formKey.currentState
-                    //                               //       .save();
-                    //                               // }
-                    //                             },
-                    //                           ),
-                    //                         )
-                    //                       ],
-                    //                     ),
-                    //                   ),
-                    //                 ],
-                    //               ),
-                    //             );
-                    //           });
-                    //     },
-                    //     child: Center(
-                    //       child: textHelper('Login',
-                    //           size: 18.0,
-                    //           color: Colors.white,
-                    //           letterSpacing: 1,
-                    //           fontFamily: 'Montserrat-Bold'),
-                    //     ),
-                    //   ),
-                    // ),
                   ),
                 )
               ],
