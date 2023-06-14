@@ -22,7 +22,7 @@ class PageProductCard extends StatelessWidget {
               ListTile(
                 title: textHelper(data.name),
                 subtitle: textHelper(
-                  'Secondary Text',
+                  'Secondary TextX',
                   color: Colors.black.withOpacity(0.6),
                 ),
               ),
