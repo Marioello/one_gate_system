@@ -22,4 +22,4 @@ jobs:
         with:
           github_token: ${{ secrets.TOKEN }}
           publish_dir: ./build/web
-          baseHref: /one_gate_system/
+          baseHref: https://marioello.github.io/one_gate_system/
