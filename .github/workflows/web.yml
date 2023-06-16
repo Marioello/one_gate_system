@@ -11,15 +11,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2 # Only works with v2
       - uses: subosito/flutter-action@v1
-      # - uses: bluefireteam/flutter-gh-pages@v7
+      - uses: bluefireteam/flutter-gh-pages@v7
       #   with:
       #     baseHref: /one_gate_system/
       - name: Enable flutter web
         run: flutter config --enable-web
       - name: 'Build Web App'
-        run: flutter build web
+        run: flutter build web --base-href "/one_gate_system/"
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
           publish_dir: ./build/web
-          baseHref: https://marioello.github.io/one_gate_system/
+          
