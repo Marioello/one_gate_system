@@ -14,6 +14,7 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
+  <!-- <base href="/one_gate_system/"> -->
   <base href="https://marioello.github.io/one_gate_system/">
 
   <meta charset="UTF-8">
@@ -32,9 +33,33 @@
   <title>one_gate_system</title>
   <link rel="manifest" href="manifest.json">
 
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBbviWiy_atuiQEv-_Fh3fXf_6LxZ3k6I8",
+      authDomain: "one-gate-system-81c5c.firebaseapp.com",
+      projectId: "one-gate-system-81c5c",
+      storageBucket: "one-gate-system-81c5c.appspot.com",
+      messagingSenderId: "393938400637",
+      appId: "1:393938400637:web:929fb246369fbc2f47c814",
+      measurementId: "G-CRVQKNYP8S"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
   <script>
     // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = "1717188169";
+    var serviceWorkerVersion = "2025581953";
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
