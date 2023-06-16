@@ -14,6 +14,10 @@ jobs:
       # - uses: bluefireteam/flutter-gh-pages@v7
       #   with:
       #     baseHref: /one_gate_system/
+      - name: Enable flutter web
+        run: flutter config --enable-web
+      - name: 'Build Web App'
+        run: flutter build web
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
