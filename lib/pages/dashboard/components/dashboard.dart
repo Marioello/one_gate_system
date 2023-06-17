@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one_gate_system/models/product.dart';
-import 'package:one_gate_system/pages/product/product_card.dart';
+import 'package:one_gate_system/pages/product/product_card_default.dart';
 import 'package:one_gate_system/shared/constants.dart';
 import 'package:one_gate_system/shared/helper.dart';
 
@@ -35,7 +35,7 @@ class PageDashboard extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: userProducts.length,
               itemBuilder: (BuildContext context, int index) =>
-                  PageProductCard(data: userProducts[index]),
+                  PageProductCardDefault(data: userProducts[index]),
             ),
           ),
         ],

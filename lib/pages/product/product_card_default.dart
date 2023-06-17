@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:one_gate_system/models/product.dart';
 import 'package:one_gate_system/shared/helper.dart';
 
-class PageProductCard extends StatelessWidget {
-  const PageProductCard({super.key, required this.data});
+class PageProductCardDefault extends StatelessWidget {
+  const PageProductCardDefault({super.key, required this.data});
 
   final Product data;
 
