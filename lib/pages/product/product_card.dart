@@ -3,58 +3,67 @@ import 'package:one_gate_system/models/product.dart';
 import 'package:one_gate_system/shared/helper.dart';
 
 class ProductCardWidget extends StatelessWidget {
-  const ProductCardWidget({super.key, required this.data});
+  const ProductCardWidget({super.key, required this.data, required this.width});
 
   final Product data;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 10.0,
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(15.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              color: Colors.transparent,
-              child: Column(
-                children: [
-                  Container(
-                    height: 100,
-                    width: 100,
-                    decoration: const BoxDecoration(
-                      // color: Colors.transparent,
-                      image: DecorationImage(
-                        image: AssetImage(
-                          'assets/images/product/sinarmas/asuransi-sinarmas.png',
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  color: Colors.transparent,
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 100,
+                        width: width * 5,
+                        decoration: const BoxDecoration(
+                          // color: Colors.transparent,
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'assets/images/no-image.png',
+                            ),
+                            opacity: 0.7,
+                            fit: BoxFit.contain,
+                          ),
                         ),
-                        opacity: 0.7,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  )
-                ],
-              ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(width: width * 0.25),
+                Container(
+                  color: Colors.transparent,
+                  height: 100,
+                  width: width * 15,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      textHelper(data.name,
+                          size: 17.0, weight: FontWeight.bold),
+                      const SizedBox(height: 10.0),
+                      textHelper(data.description, color: Colors.grey),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            Container(
-              color: Colors.transparent,
-              height: 100,
-              width: 350,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  textHelper(data.name, size: 17.0, weight: FontWeight.bold),
-                  const SizedBox(height: 10.0),
-                  textHelper(data.description, color: Colors.grey),
-                ],
-              ),
-            ),
+            SizedBox(width: width * 0.25),
             Container(
               height: 100,
-              width: 200,
+              width: width * 7,
               color: Colors.transparent,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,7 +88,7 @@ class ProductCardWidget extends StatelessWidget {
                         color: Colors.grey,
                       ),
                       SizedBox(width: 10.0),
-                      textHelper('tambahkan ke favorit'),
+                      textHelper('Favorit'),
                     ],
                   ),
                 ],

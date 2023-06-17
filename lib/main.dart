@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:one_gate_system/config/firebase.dart';
@@ -23,7 +24,13 @@ class MyApp extends StatelessWidget {
     return StreamProvider<UserAuth?>.value(
       value: AuthService().user,
       initialData: null,
-      child: const MaterialApp(
+      child: MaterialApp(
+        scrollBehavior: ScrollConfiguration.of(context).copyWith(
+          dragDevices: {
+            PointerDeviceKind.touch,
+            PointerDeviceKind.mouse,
+          },
+        ),
         title: 'One Gate System',
         home: Wrapper(),
       ),
