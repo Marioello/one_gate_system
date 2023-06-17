@@ -34,7 +34,63 @@ class Product {
 List<Product> userProducts = [
   Product(
     id: 1,
-    name: 'Asuransi Personal Accident',
+    name: 'Asuransi Personal Accident 1',
+    description:
+        'Periode Pertanggungan 1 tahun, sejak tanggal konfirmasi atau TBA ( To Be Announce)',
+    premi: '500000 / tahun',
+    benefit: [
+      'santunan kematian akibat kecelakaan 250.000.000',
+      'cacat tetap akibat kecelakaan 300.000.000',
+      'biaya pengobatan akibat kecelakaan 25.000.000',
+      'santunan tunai harian apabila dirawat inap (max 14 hari/thn) 2.500.000 per hari',
+      'santunan biaya pemakaman akibat sakit dan kecelakaan 25.000.000',
+    ],
+  ),
+  Product(
+    id: 2,
+    name: 'Asuransi Personal Accident 2',
+    description:
+        'Periode Pertanggungan 1 tahun, sejak tanggal konfirmasi atau TBA ( To Be Announce)',
+    premi: '500000 / tahun',
+    benefit: [
+      'santunan kematian akibat kecelakaan 250.000.000',
+      'cacat tetap akibat kecelakaan 300.000.000',
+      'biaya pengobatan akibat kecelakaan 25.000.000',
+      'santunan tunai harian apabila dirawat inap (max 14 hari/thn) 2.500.000 per hari',
+      'santunan biaya pemakaman akibat sakit dan kecelakaan 25.000.000',
+    ],
+  ),
+  Product(
+    id: 3,
+    name: 'Asuransi Personal Accident 3',
+    description:
+        'Periode Pertanggungan 1 tahun, sejak tanggal konfirmasi atau TBA ( To Be Announce)',
+    premi: '500000 / tahun',
+    benefit: [
+      'santunan kematian akibat kecelakaan 250.000.000',
+      'cacat tetap akibat kecelakaan 300.000.000',
+      'biaya pengobatan akibat kecelakaan 25.000.000',
+      'santunan tunai harian apabila dirawat inap (max 14 hari/thn) 2.500.000 per hari',
+      'santunan biaya pemakaman akibat sakit dan kecelakaan 25.000.000',
+    ],
+  ),
+  Product(
+    id: 4,
+    name: 'Asuransi Personal Accident 4',
+    description:
+        'Periode Pertanggungan 1 tahun, sejak tanggal konfirmasi atau TBA ( To Be Announce)',
+    premi: '500000 / tahun',
+    benefit: [
+      'santunan kematian akibat kecelakaan 250.000.000',
+      'cacat tetap akibat kecelakaan 300.000.000',
+      'biaya pengobatan akibat kecelakaan 25.000.000',
+      'santunan tunai harian apabila dirawat inap (max 14 hari/thn) 2.500.000 per hari',
+      'santunan biaya pemakaman akibat sakit dan kecelakaan 25.000.000',
+    ],
+  ),
+  Product(
+    id: 5,
+    name: 'Asuransi Personal Accident 5',
     description:
         'Periode Pertanggungan 1 tahun, sejak tanggal konfirmasi atau TBA ( To Be Announce)',
     premi: '500000 / tahun',

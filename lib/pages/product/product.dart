@@ -10,8 +10,12 @@ class PageProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    var w = size.width / 100;
+
+    ///
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20.0, 50.0, 0, 20.0),
+      padding: const EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -29,16 +33,36 @@ class PageProduct extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10.0),
+          Container(
+            color: Colors.transparent,
+            height: 150,
+            width: double.infinity,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: userProducts.length,
+              itemBuilder: (BuildContext context, int index) =>
+                  ProductCardWidget(data: userProducts[index], width: w),
+            ),
+          ),
+          const SizedBox(height: 20.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              textHelper('Produk lainnya',
+                  size: fntSizeDefault3, weight: FontWeight.bold),
+            ],
+          ),
+          const SizedBox(height: 10.0),
           Expanded(
-            flex: 1,
-            child: Container(
-              width: 700,
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: userProducts.length,
-                itemBuilder: (BuildContext context, int index) =>
-                    ProductCardWidget(data: userProducts[index]),
-              ),
+            child: GridView.count(
+              crossAxisCount: 2,
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 5,
+              childAspectRatio: 4 / 1,
+              children: userProducts.map((e) {
+                return ProductCardWidget(data: e, width: w);
+              }).toList(),
             ),
           ),
         ],
@@ -46,63 +70,3 @@ class PageProduct extends StatelessWidget {
     );
   }
 }
-
-// class PageProduct extends StatelessWidget {
-//   const PageProduct({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     // List<Product> otherProduct = [
-//     //   Product(id: 3, name: 'PA 3'),
-//     //   Product(id: 4, name: 'PA 4'),
-//     // ];
-//     // List<String> widgetList = ['A', 'B', 'C'];
-
-//     // var size = MediaQuery.of(context).size;
-
-//     /*24 is for notification bar on Android*/
-//     // final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
-//     // final double itemHeight = (size.height - kToolbarHeight) / 2;
-//     // final double itemWidth = size.width / 2;
-
-//     ///
-//     return Padding(
-//       padding: const EdgeInsets.fromLTRB(20.0, 50.0, 0, 20.0),
-//       child: Column(
-//         mainAxisAlignment: MainAxisAlignment.start,
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         mainAxisSize: MainAxisSize.min,
-//         children: [
-//           textHelper('Produk anda',
-//               size: fntSizeDefault3, weight: FontWeight.bold),
-//           const SizedBox(height: 10.0),
-//           Expanded(
-//             flex: 1,
-//             child: ListView.builder(
-//               shrinkWrap: true,
-//               scrollDirection: Axis.horizontal,
-//               itemCount: userProducts.length,
-//               itemBuilder: (BuildContext context, int index) {
-//                 return PageProductCardDefault(data: userProducts[index]);
-//               },
-//             ),
-//           ),
-//           const SizedBox(height: 10.0),
-//           textHelper('Produk lainya',
-//               size: fntSizeDefault3, weight: FontWeight.bold),
-//           const SizedBox(height: 10.0),
-//           Expanded(
-//             flex: 1,
-//             child: ListView.builder(
-//               shrinkWrap: true,
-//               scrollDirection: Axis.horizontal,
-//               itemCount: userProducts.length,
-//               itemBuilder: (BuildContext context, int index) =>
-//                   PageProductCardDefault(data: userProducts[index]),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
