@@ -2,63 +2,90 @@ import 'package:flutter/material.dart';
 import 'package:one_gate_system/models/product.dart';
 import 'package:one_gate_system/shared/helper.dart';
 
-class PageProductCard extends StatelessWidget {
-  const PageProductCard({super.key, required this.data});
+class ProductCardWidget extends StatelessWidget {
+  const ProductCardWidget({super.key, required this.data});
 
   final Product data;
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.topLeft,
-      child: SizedBox(
-        // color: Colors.amber,
-        height: 200.0,
-        width: 250.0,
-        child: Card(
-          elevation: 10.0,
-          child: Column(
-            children: [
-              ListTile(
-                title: textHelper(data.name),
-                subtitle: textHelper(
-                  'Secondary TextX',
-                  color: Colors.black.withOpacity(0.6),
-                ),
-              ),
-              // Image.asset(
-              //   'assets/images/tiers/tier-one.png',
-              //   width: 100,
-              //   height: 100,
-              // ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: textHelper(
-                  'Greyhound divisively hello coldly wonderfully marginally far upon excluding.',
-                  color: Colors.black.withOpacity(0.6),
-                ),
-              ),
-              ButtonBar(
-                alignment: MainAxisAlignment.spaceBetween,
+    return Card(
+      elevation: 10.0,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              color: Colors.transparent,
+              child: Column(
                 children: [
-                  TextButton(
-                    // textColor: const Color(0xFF6200EE),
-                    onPressed: () {
-                      // Perform some action
-                    },
-                    child: textHelper('ACTION 1', color: Colors.blue),
+                  Container(
+                    height: 100,
+                    width: 100,
+                    decoration: const BoxDecoration(
+                      // color: Colors.transparent,
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'assets/images/product/sinarmas/asuransi-sinarmas.png',
+                        ),
+                        opacity: 0.7,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              color: Colors.transparent,
+              height: 100,
+              width: 500,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  textHelper(data.name, size: 17.0, weight: FontWeight.bold),
+                  const SizedBox(height: 10.0),
+                  textHelper(data.description, color: Colors.grey),
+                ],
+              ),
+            ),
+            Container(
+              height: 100,
+              width: 200,
+              color: Colors.transparent,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  textHelper(data.premi),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ButtonStyle(),
+                          onPressed: () {},
+                          child: textHelper('Detail', color: Colors.white),
+                        ),
+                      ),
+                    ],
                   ),
-                  OutlinedButton(
-                    // textColor: const Color(0xFF6200EE),
-                    onPressed: () {
-                      // Perform some action
-                    },
-                    child: textHelper('ACTION 2', color: Colors.blue),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.favorite,
+                        color: Colors.grey,
+                      ),
+                      SizedBox(width: 10.0),
+                      textHelper('tambahkan ke favorit'),
+                    ],
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
