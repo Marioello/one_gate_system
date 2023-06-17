@@ -41,7 +41,7 @@ class ProductCardWidget extends StatelessWidget {
             Container(
               color: Colors.transparent,
               height: 100,
-              width: 500,
+              width: 350,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +59,7 @@ class ProductCardWidget extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  textHelper(data.premi),
+                  textHelper('Rp. ${data.premi}'),
                   Row(
                     children: [
                       Expanded(

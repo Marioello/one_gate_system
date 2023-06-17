@@ -32,7 +32,7 @@ class PageProduct extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              width: 850,
+              width: 700,
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: userProducts.length,
