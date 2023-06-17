@@ -37,7 +37,19 @@ class _LargeChildState extends State<LargeChild> {
           FractionallySizedBox(
             alignment: Alignment.centerRight,
             widthFactor: .6,
-            child: Image.network("assets/images/main-bg.jpg", scale: .85),
+            // child: Image.network("assets/images/main-bg.jpg", scale: .85),
+            child: Container(
+              height: 100,
+              width: 100,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/main-bg.jpg'),
+                  opacity: 0.7,
+                  scale: .85,
+                  // fit: BoxFit.cover,
+                ),
+              ),
+            ),
           ),
           FractionallySizedBox(
             alignment: Alignment.centerLeft,
