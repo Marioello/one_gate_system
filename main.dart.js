@@ -81430,13 +81430,13 @@ $S:10}
 A.Lr.prototype={
 J(a){var s="Montserrat-Regular",r=null,q=A.c1("Produk",B.n,s,r,30,B.I,B.b2),p=A.c1(u.t,B.n,s,r,14,B.I,B.p),o=t.p,n=A.jH(A.a([A.c1("Produk anda",B.n,s,r,20,B.I,B.b2)],o),B.a2,B.ar,B.U)
 $.Yx()
-return new A.bw(B.nP,A.ev(A.a([q,B.iT,p,B.iT,n,B.lI,A.jf(A.dl(r,A.ar_(new A.a8O(),1,B.an,!0),r,r,r,r,r,r,850),1)],o),B.dl,B.ar,B.U),r)}}
+return new A.bw(B.nP,A.ev(A.a([q,B.iT,p,B.iT,n,B.lI,A.jf(A.dl(r,A.ar_(new A.a8O(),1,B.an,!0),r,r,r,r,r,r,700),1)],o),B.dl,B.ar,B.U),r)}}
 A.a8O.prototype={
 $2(a,b){return new A.tw($.Yx()[b],null)},
 $S:500}
 A.tw.prototype={
-J(a){var s,r=null,q="Montserrat-Regular",p=t.p,o=A.dl(r,A.ev(A.a([A.dl(r,r,r,r,B.H6,100,r,r,100)],p),B.a2,B.ar,B.U),B.H,r,r,r,r,r,r),n=this.c,m=A.dl(r,A.ev(A.a([A.c1(n.b,B.n,q,r,17,B.I,B.b2),B.lI,A.c1(n.c,B.eY,q,r,14,B.I,B.p)],p),B.dl,B.ar,B.U),B.H,r,r,100,r,r,500)
-n=A.c1(n.d,B.n,q,r,14,B.I,B.p)
+J(a){var s,r=null,q="Montserrat-Regular",p=t.p,o=A.dl(r,A.ev(A.a([A.dl(r,r,r,r,B.H6,100,r,r,100)],p),B.a2,B.ar,B.U),B.H,r,r,r,r,r,r),n=this.c,m=A.dl(r,A.ev(A.a([A.c1(n.b,B.n,q,r,17,B.I,B.b2),B.lI,A.c1(n.c,B.eY,q,r,14,B.I,B.p)],p),B.dl,B.ar,B.U),B.H,r,r,100,r,r,350)
+n=A.c1("Rp. "+n.d,B.n,q,r,14,B.I,B.p)
 s=A.qG(r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r)
 return A.aq8(new A.bw(B.nL,A.jH(A.a([o,m,A.dl(r,A.ev(A.a([n,A.jH(A.a([A.jf(A.IU(A.c1("Detail",B.l,q,r,14,B.I,B.p),new A.a9S(),s),1)],p),B.a2,B.ar,B.U),A.jH(A.a([B.KO,A.hD(r,r,10),A.c1("tambahkan ke favorit",B.n,q,r,14,B.I,B.p)],p),B.a2,B.il,B.U)],p),B.a2,B.bV,B.U),B.H,r,r,100,r,r,200)],p),B.a2,B.bV,B.U),r),10)}}
 A.a9S.prototype={
