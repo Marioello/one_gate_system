@@ -23,7 +23,8 @@ class _DashboardLayoutState extends State<DashboardLayout> {
   bool isLoading = false;
 
   /// List of pages
-  final pages = [const PageDashboard(), const PageProduct()];
+  // final pages = [const PageProduct(), const PageDashboard()];
+  final pages = [const PageProduct(), const PageDashboard()];
 
   /// Fasttrack
 
@@ -49,11 +50,11 @@ class _DashboardLayoutState extends State<DashboardLayout> {
   Widget build(BuildContext context) {
     var listMenu = [
       ListTile(
-        title: textHelper('Beranda'),
+        title: textHelper('Produk'),
         onTap: () => setState(() => selectedPage = 0),
       ),
       ListTile(
-        title: textHelper('Produk'),
+        title: textHelper('Beranda'),
         onTap: () => setState(() => selectedPage = 1),
       ),
       ListTile(
