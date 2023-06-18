@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:one_gate_system/services/auth.dart';
 import 'package:one_gate_system/shared/helper.dart';
-import 'package:one_gate_system/shared/responsive_layout.dart';
+import 'package:one_gate_system/shared/widgets/responsive_layout.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});

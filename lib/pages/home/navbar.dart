@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one_gate_system/services/auth.dart';
-import 'package:one_gate_system/shared/responsive_layout.dart';
+import 'package:one_gate_system/shared/widgets/responsive_layout.dart';
 import 'package:one_gate_system/shared/helper.dart';
 
 class NavBar extends StatefulWidget {
@@ -21,16 +21,16 @@ class _NavBarState extends State<NavBar> {
     TextEditingController passwordController = TextEditingController();
 
     ///
-    final navLinks = ["Home", "Products"];
+    // final navLinks = ["Home", "Products"];
 
-    List navItem() {
-      return navLinks.map((text) {
-        return Padding(
-          padding: const EdgeInsets.only(left: 18),
-          child: textHelper(text, size: 18.0, fontFamily: 'Montserrat-Bold'),
-        );
-      }).toList();
-    }
+    // List navItem() {
+    //   return navLinks.map((text) {
+    //     return Padding(
+    //       padding: const EdgeInsets.only(left: 18),
+    //       child: textHelper(text, size: 18.0, fontFamily: 'Montserrat-Bold'),
+    //     );
+    //   }).toList();
+    // }
 
     ///
     return Padding(

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:one_gate_system/shared/constants.dart';
 import 'package:one_gate_system/models/api_response.dart';
@@ -53,7 +54,9 @@ class Member {
       },
     ).catchError(
       (err) {
-        print(err.toString());
+        if (kDebugMode) {
+          print(err.toString());
+        }
         return APIResponse<bool>(error: true, errorMessage: err.toString());
       },
     );

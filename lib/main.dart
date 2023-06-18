@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           },
         ),
         title: 'One Gate System',
-        home: Wrapper(),
+        home: const Wrapper(),
       ),
     );
   }
