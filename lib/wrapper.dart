@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:one_gate_system/pages/home/home.dart';
 import 'package:one_gate_system/pages/dashboard/layout.dart';
@@ -10,7 +11,9 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserAuth?>(context);
-    print('User: $user');
+    if (kDebugMode) {
+      print('User: $user');
+    }
 
     if (user == null) {
       return const HomePage();

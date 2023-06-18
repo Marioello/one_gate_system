@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:one_gate_system/models/account.dart';
 import 'package:one_gate_system/models/member.dart';
 import 'package:one_gate_system/models/user.dart';
@@ -27,7 +28,9 @@ class AuthService {
 
       return _userFromFireBase(user);
     } catch (e) {
-      print(e.toString());
+      if (kDebugMode) {
+        print(e.toString());
+      }
       return null;
     }
   }
@@ -50,9 +53,15 @@ class AuthService {
           .updateUserData(1, email, password)
           .then(
         (value) {
-          print('registerwithEmailAndPassword');
-          print(value);
-          print('registerwithEmailAndPassword');
+          if (kDebugMode) {
+            print('registerwithEmailAndPassword');
+          }
+          if (kDebugMode) {
+            print(value);
+          }
+          if (kDebugMode) {
+            print('registerwithEmailAndPassword');
+          }
           Member.postMember(
             Member(
               id: 0,
@@ -71,7 +80,9 @@ class AuthService {
 
       return _userFromFireBase(user);
     } catch (e) {
-      print(e.toString());
+      if (kDebugMode) {
+        print(e.toString());
+      }
       return null;
     }
   }
@@ -81,7 +92,9 @@ class AuthService {
     try {
       return await _auth.signOut();
     } catch (e) {
-      print(e.toString());
+      if (kDebugMode) {
+        print(e.toString());
+      }
       return null;
     }
   }

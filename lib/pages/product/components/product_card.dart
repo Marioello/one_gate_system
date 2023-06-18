@@ -31,9 +31,7 @@ class ProductCardWidget extends StatelessWidget {
                         decoration: const BoxDecoration(
                           // color: Colors.transparent,
                           image: DecorationImage(
-                            image: AssetImage(
-                              'assets/images/no-image.png',
-                            ),
+                            image: AssetImage('assets/images/no-image.png'),
                             opacity: 0.7,
                             fit: BoxFit.contain,
                           ),
@@ -67,13 +65,14 @@ class ProductCardWidget extends StatelessWidget {
               color: Colors.transparent,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   textHelper('Rp. ${data.premi}'),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Expanded(
                         child: ElevatedButton(
-                          style: ButtonStyle(),
                           onPressed: () {},
                           child: textHelper('Detail', color: Colors.white),
                         ),
@@ -81,14 +80,14 @@ class ProductCardWidget extends StatelessWidget {
                     ],
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const Icon(
                         Icons.favorite,
                         color: Colors.grey,
                       ),
-                      SizedBox(width: 10.0),
-                      textHelper('Favorit'),
+                      const SizedBox(width: 10.0),
+                      textHelper('Set favorit'),
                     ],
                   ),
                 ],
