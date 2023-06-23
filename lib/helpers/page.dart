@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one_gate_system/models/member.dart';
-import 'package:one_gate_system/shared/constants.dart';
+import 'package:one_gate_system/pages/dashboard/layout.dart';
 
 class PageHelper extends StatelessWidget {
   const PageHelper(

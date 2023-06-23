@@ -4,7 +4,6 @@ import 'package:one_gate_system/models/product.dart';
 import 'package:one_gate_system/pages/product/components/product_card.dart';
 import 'package:one_gate_system/pages/product/your_product.dart';
 import 'package:one_gate_system/shared/constants.dart';
-import 'package:one_gate_system/shared/widgets/fast_track.dart';
 import 'package:one_gate_system/shared/widgets/header.dart';
 import 'package:one_gate_system/shared/helper.dart';
 
@@ -58,10 +57,6 @@ class PageProduct extends StatelessWidget {
             ),
           ),
         ),
-        Expanded(
-          flex: 2,
-          child: FastTrackWidget(memberList: memberList),
-        )
       ],
     );
   }
