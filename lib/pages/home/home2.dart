@@ -105,11 +105,11 @@ class HomePage2 extends StatelessWidget {
                 flex: 1,
                 child: HomeHeader(size: size, mobileMode: true, text: 'Mobile'),
               ),
-              // // Body
-              // Expanded(
-              //   flex: 10,
-              //   child: HomeBody(size: size, isMobile: true),
-              // ),
+              // Body
+              Expanded(
+                flex: 10,
+                child: HomeBody(size: size, isMobile: true),
+              ),
               // Footer
               Expanded(
                 flex: 1,
@@ -124,11 +124,11 @@ class HomePage2 extends StatelessWidget {
                 flex: 1,
                 child: HomeHeader(size: size, tabletMode: true, text: 'Tablet'),
               ),
-              // // Body
-              // Expanded(
-              //   flex: 10,
-              //   child: HomeBody(size: size, isTablet: true),
-              // ),
+              // Body
+              Expanded(
+                flex: 10,
+                child: HomeBody(size: size, isTablet: true),
+              ),
               // Footer
               Expanded(
                 flex: 1,
@@ -147,11 +147,11 @@ class HomePage2 extends StatelessWidget {
                   child: HomeHeader(
                       size: size, desktopMode: true, text: 'Desktop'),
                 ),
-                // // Body
-                // Expanded(
-                //   flex: 10,
-                //   child: HomeBody(size: size, isTablet: true),
-                // ),
+                // Body
+                Expanded(
+                  flex: 10,
+                  child: HomeBody(size: size, isDesktop: true),
+                ),
                 // Footer
                 Expanded(
                   flex: 1,
@@ -184,6 +184,8 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var h = size.height / 100;
+    var w = size.width / 100;
     var titleText = text.isNotEmpty ? ' - $text' : text;
     var mode = '';
     if (mobileMode) {
@@ -199,7 +201,7 @@ class HomeHeader extends StatelessWidget {
     return Container(
       color: Colors.transparent,
       child: Padding(
-        padding: EdgeInsets.all(size.width * 1),
+        padding: EdgeInsets.all(w * 1),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -214,23 +216,23 @@ class HomeHeader extends StatelessWidget {
                     offset: Offset(0.0, 0.0),
                   )
                 ]),
-            // mobileMode
-            //     ? Icon(Icons.menu, size: size.width * 8, color: Colors.white)
-            //     : ElevatedButton(
-            //         style: ElevatedButton.styleFrom(
-            //           backgroundColor: Colors.purple,
-            //           elevation: 10.0,
-            //           shape: RoundedRectangleBorder(
-            //             borderRadius: BorderRadius.circular(10.0),
-            //           ),
-            //         ),
-            //         onPressed: () {},
-            //         child: Padding(
-            //           padding: EdgeInsets.symmetric(vertical: size.height * 1),
-            //           child:
-            //               textHelper('Login', size: 17.0, color: Colors.white),
-            //         ),
-            //       ),
+            mobileMode
+                ? Icon(Icons.menu, size: w * 8, color: Colors.white)
+                : ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.purple,
+                      elevation: 10.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: h * 1),
+                      child:
+                          textHelper('Login', size: 17.0, color: Colors.white),
+                    ),
+                  ),
           ],
         ),
       ),
@@ -238,154 +240,229 @@ class HomeHeader extends StatelessWidget {
   }
 }
 
-// class HomeBody extends StatelessWidget {
-//   const HomeBody({
-//     super.key,
-//     required this.size,
-//     this.isMobile = false,
-//     this.isTablet = false,
-//     this.isDesktop = false,
-//   });
+class HomeBody extends StatelessWidget {
+  const HomeBody({
+    super.key,
+    required this.size,
+    this.isMobile = false,
+    this.isTablet = false,
+    this.isDesktop = false,
+  });
 
-//   final Size size;
-//   final bool isMobile;
-//   final bool isTablet;
-//   final bool isDesktop;
+  final Size size;
+  final bool isMobile;
+  final bool isTablet;
+  final bool isDesktop;
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: isMobile
-//           ? Padding(
-//               padding: EdgeInsets.all(size.width * 8),
-//               child: Column(
-//                 mainAxisAlignment: MainAxisAlignment.end,
-//                 crossAxisAlignment: CrossAxisAlignment.center,
-//                 children: [
-//                   textHelper('One Gate System',
-//                       size: 70,
-//                       color: Colors.white,
-//                       weight: FontWeight.bold,
-//                       shadows: [
-//                         const Shadow(
-//                           blurRadius: 20.0,
-//                           color: Colors.black87,
-//                           offset: Offset(0.0, 0.0),
-//                         )
-//                       ]),
-//                   SizedBox(height: size.height * 2.5),
-//                   SizedBox(
-//                     width: size.width * 80,
-//                     child: Row(
-//                       children: [
-//                         Expanded(
-//                           child: Padding(
-//                             padding: EdgeInsets.only(right: size.width * 0.5),
-//                             child: TextField(
-//                               decoration: InputDecoration(
-//                                 filled: true,
-//                                 fillColor: Colors.white,
-//                                 border: OutlineInputBorder(
-//                                   borderRadius: BorderRadius.circular(10),
-//                                 ),
-//                                 hintText: 'putinela.romario@gmail.com',
-//                               ),
-//                               onChanged: (value) {},
-//                             ),
-//                           ),
-//                         ),
-//                         ElevatedButton(
-//                           style: ElevatedButton.styleFrom(
-//                             backgroundColor: Colors.purple,
-//                             elevation: 10.0,
-//                             shape: RoundedRectangleBorder(
-//                               borderRadius: BorderRadius.circular(10.0),
-//                             ),
-//                           ),
-//                           onPressed: () {},
-//                           child: Padding(
-//                             padding:
-//                                 EdgeInsets.symmetric(vertical: size.height * 2),
-//                             child: textHelper('Daftar',
-//                                 size: 17.0, color: Colors.white),
-//                           ),
-//                         )
-//                       ],
-//                     ),
-//                   )
-//                 ],
-//               ),
-//             )
-//           : Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               crossAxisAlignment: CrossAxisAlignment.center,
-//               children: [
-//                 textHelper('One Gate System',
-//                     size: 70,
-//                     color: Colors.white,
-//                     weight: FontWeight.bold,
-//                     shadows: [
-//                       const Shadow(
-//                         blurRadius: 20.0,
-//                         color: Colors.black87,
-//                         offset: Offset(0.0, 0.0),
-//                       )
-//                     ]),
-//                 textHelper('one stop solution',
-//                     size: 25,
-//                     color: Colors.grey.shade200,
-//                     shadows: [
-//                       const Shadow(
-//                         blurRadius: 20.0,
-//                         color: Colors.black87,
-//                         offset: Offset(0.0, 0.0),
-//                       )
-//                     ]),
-//                 SizedBox(height: size.height * 5),
-//                 SizedBox(
-//                   width: size.width * 20,
-//                   child: Row(
-//                     children: [
-//                       Expanded(
-//                         child: Padding(
-//                           padding: EdgeInsets.only(right: size.width * 0.5),
-//                           child: TextField(
-//                             decoration: InputDecoration(
-//                               filled: true,
-//                               fillColor: Colors.white,
-//                               border: OutlineInputBorder(
-//                                 borderRadius: BorderRadius.circular(10),
-//                               ),
-//                               hintText: 'putinela.romario@gmail.com',
-//                             ),
-//                             onChanged: (value) {},
-//                           ),
-//                         ),
-//                       ),
-//                       ElevatedButton(
-//                         style: ElevatedButton.styleFrom(
-//                           backgroundColor: Colors.purple,
-//                           elevation: 10.0,
-//                           shape: RoundedRectangleBorder(
-//                             borderRadius: BorderRadius.circular(10.0),
-//                           ),
-//                         ),
-//                         onPressed: () {},
-//                         child: Padding(
-//                           padding:
-//                               EdgeInsets.symmetric(vertical: size.height * 1.5),
-//                           child: textHelper('Daftar',
-//                               size: 17.0, color: Colors.white),
-//                         ),
-//                       )
-//                     ],
-//                   ),
-//                 )
-//               ],
-//             ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    var h = size.height / 100;
+    var w = size.width / 100;
+
+    if (isMobile) {
+      return Padding(
+        padding: EdgeInsets.all(w * 8),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            textHelper('One Gate System',
+                size: 70,
+                color: Colors.white,
+                weight: FontWeight.bold,
+                shadows: [
+                  const Shadow(
+                    blurRadius: 20.0,
+                    color: Colors.black87,
+                    offset: Offset(0.0, 0.0),
+                  )
+                ]),
+            SizedBox(height: h * 2.5),
+            Container(
+              // color: Colors.white70,
+              color: Colors.transparent,
+              width: w * 80,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.only(right: w * 0.5),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          hintText: 'putinela.romario@gmail.com',
+                        ),
+                        onChanged: (value) {},
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.purple,
+                      elevation: 10.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: h * 1.6),
+                      child:
+                          textHelper('Daftar', size: 17.0, color: Colors.white),
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      );
+    } else {
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          textHelper('One Gate System',
+              size: 70,
+              color: Colors.white,
+              weight: FontWeight.bold,
+              shadows: [
+                const Shadow(
+                  blurRadius: 20.0,
+                  color: Colors.black87,
+                  offset: Offset(0.0, 0.0),
+                )
+              ]),
+          textHelper('one stop solution',
+              size: 25,
+              color: Colors.grey.shade200,
+              shadows: [
+                const Shadow(
+                  blurRadius: 20.0,
+                  color: Colors.black87,
+                  offset: Offset(0.0, 0.0),
+                )
+              ]),
+          SizedBox(height: h * 5),
+          Container(
+            // color: Colors.white70,
+            color: Colors.transparent,
+            width: w * (isDesktop ? 35 : 50),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(right: w * 0.5),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        hintText: 'putinela.romario@gmail.com',
+                      ),
+                      onChanged: (value) {},
+                    ),
+                  ),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.purple,
+                    elevation: 10.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: h * 1.5),
+                    child:
+                        textHelper('Daftar', size: 17.0, color: Colors.white),
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      );
+    }
+    //else {
+    // return Column(
+    //   mainAxisAlignment: MainAxisAlignment.center,
+    //   crossAxisAlignment: CrossAxisAlignment.center,
+    //   children: [
+    //     textHelper('One Gate System',
+    //         size: 70,
+    //         color: Colors.white,
+    //         weight: FontWeight.bold,
+    //         shadows: [
+    //           const Shadow(
+    //             blurRadius: 20.0,
+    //             color: Colors.black87,
+    //             offset: Offset(0.0, 0.0),
+    //           )
+    //         ]),
+    //     textHelper('one stop solution',
+    //         size: 25,
+    //         color: Colors.grey.shade200,
+    //         shadows: [
+    //           const Shadow(
+    //             blurRadius: 20.0,
+    //             color: Colors.black87,
+    //             offset: Offset(0.0, 0.0),
+    //           )
+    //         ]),
+    //     SizedBox(height: h * 5),
+    //     Container(
+    //       // color: Colors.white70,
+    //       color: Colors.transparent,
+    //       width: w * 35,
+    //       child: Row(
+    //         children: [
+    //           Expanded(
+    //             child: Padding(
+    //               padding: EdgeInsets.only(right: w * 0.5),
+    //               child: TextField(
+    //                 decoration: InputDecoration(
+    //                   filled: true,
+    //                   fillColor: Colors.white,
+    //                   border: OutlineInputBorder(
+    //                     borderRadius: BorderRadius.circular(10),
+    //                   ),
+    //                   hintText: 'putinela.romario@gmail.com',
+    //                 ),
+    //                 onChanged: (value) {},
+    //               ),
+    //             ),
+    //           ),
+    //           ElevatedButton(
+    //             style: ElevatedButton.styleFrom(
+    //               backgroundColor: Colors.purple,
+    //               elevation: 10.0,
+    //               shape: RoundedRectangleBorder(
+    //                 borderRadius: BorderRadius.circular(10.0),
+    //               ),
+    //             ),
+    //             onPressed: () {},
+    //             child: Padding(
+    //               padding: EdgeInsets.symmetric(vertical: h * 1.5),
+    //               child:
+    //                   textHelper('Daftar', size: 17.0, color: Colors.white),
+    //             ),
+    //           )
+    //         ],
+    //       ),
+    //     )
+    //   ],
+    // );
+    // }
+  }
+}
 
 class HomeFooter extends StatelessWidget {
   const HomeFooter({
@@ -397,11 +474,14 @@ class HomeFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var w = size.width / 100;
+    var h = size.height / 100;
+
     return Container(
       // color: Colors.grey[50]?.withOpacity(.50),
       color: Colors.transparent,
       child: Padding(
-        padding: EdgeInsets.all(size.width * 1),
+        padding: EdgeInsets.all(w * 1),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
