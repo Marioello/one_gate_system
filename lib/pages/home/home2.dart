@@ -475,7 +475,7 @@ class HomeFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var w = size.width / 100;
-    var h = size.height / 100;
+    // var h = size.height / 100;
 
     return Container(
       // color: Colors.grey[50]?.withOpacity(.50),
