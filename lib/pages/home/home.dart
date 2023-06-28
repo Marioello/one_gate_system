@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:one_gate_system/pages/home/body.dart';
+import 'package:one_gate_system/pages/home/old_home_widgets/body.dart';
 import 'package:one_gate_system/shared/helper.dart';
-import 'package:one_gate_system/pages/home/navbar.dart';
+import 'package:one_gate_system/pages/home/old_home_widgets/navbar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

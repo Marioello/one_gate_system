@@ -3,6 +3,7 @@ import 'package:one_gate_system/pages/home/widgets/body.dart';
 import 'package:one_gate_system/pages/home/widgets/footer.dart';
 import 'package:one_gate_system/pages/home/widgets/header.dart';
 import 'package:one_gate_system/responsive.dart';
+import 'package:one_gate_system/shared/helper.dart';
 
 class HomePage2 extends StatelessWidget {
   const HomePage2({super.key});
@@ -28,7 +29,7 @@ class HomePage2 extends StatelessWidget {
             children: [
               // Header
               Expanded(
-                flex: 1,
+                flex: 2,
                 child: HomeHeader(size: size, mobileMode: true),
               ),
               // Body
@@ -47,7 +48,7 @@ class HomePage2 extends StatelessWidget {
             children: [
               // Header
               Expanded(
-                flex: 1,
+                flex: 2,
                 child: HomeHeader(size: size, tabletMode: true),
               ),
               // Body
@@ -62,28 +63,33 @@ class HomePage2 extends StatelessWidget {
               ),
             ],
           ),
-          desktop: Padding(
-            padding: EdgeInsets.symmetric(vertical: h * 2, horizontal: w * 1),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                // Header
-                Expanded(
-                  flex: 1,
-                  child: HomeHeader(size: size, desktopMode: true),
-                ),
-                // Body
-                Expanded(
-                  flex: 10,
-                  child: HomeBody(size: size, isDesktop: true),
-                ),
-                // Footer
-                Expanded(
-                  flex: 1,
-                  child: HomeFooter(size: size),
-                ),
-              ],
-            ),
+          desktop: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              // Header
+              Expanded(
+                flex: 2,
+                child: HomeHeader(size: size, desktopMode: true),
+              ),
+              // Body
+              Expanded(
+                flex: 10,
+                child: HomeBody(size: size, isDesktop: true),
+              ),
+              // Footer
+              Expanded(
+                flex: 1,
+                child: HomeFooter(size: size),
+              ),
+            ],
+          ),
+          tooSmall: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                child: textHelper('Halaman terlalu kecil'),
+              ),
+            ],
           ),
         ),
       ),

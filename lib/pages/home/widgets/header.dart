@@ -31,12 +31,26 @@ class HomeHeader extends StatelessWidget {
       mode = 'Desktop';
     }
 
-    print('h * 1: ${h * 1}');
+    double hPad = 10;
+    double btnHeight = 15;
+    if (mobileMode) {
+      hPad = 10;
+    }
+    if (tabletMode) {
+      hPad = 10;
+      btnHeight = 10;
+    }
+    if (desktopMode) {
+      btnHeight = 8;
+    }
+
+    print('hPad: $hPad\nbtnHeight: $btnHeight\n');
 
     return Container(
-      color: Colors.transparent,
+      // color: Colors.transparent,
+      color: Colors.white70,
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: EdgeInsets.all(hPad),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -63,7 +77,7 @@ class HomeHeader extends StatelessWidget {
                 ),
                 onPressed: () {},
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  padding: EdgeInsets.symmetric(vertical: btnHeight),
                   child: textHelper('Login', size: 17.0, color: Colors.white),
                 ),
               ),
