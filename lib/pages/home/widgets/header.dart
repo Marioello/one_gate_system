@@ -31,12 +31,12 @@ class HomeHeader extends StatelessWidget {
       mode = 'Desktop';
     }
 
-    print('mode: $mode');
+    print('h * 1: ${h * 1}');
 
     return Container(
       color: Colors.transparent,
       child: Padding(
-        padding: EdgeInsets.all(w * 1),
+        padding: const EdgeInsets.all(10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -63,7 +63,7 @@ class HomeHeader extends StatelessWidget {
                 ),
                 onPressed: () {},
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: h * 1),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
                   child: textHelper('Login', size: 17.0, color: Colors.white),
                 ),
               ),

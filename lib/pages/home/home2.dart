@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:one_gate_system/pages/home/widgets/body.dart';
 import 'package:one_gate_system/pages/home/widgets/footer.dart';
-import 'package:one_gate_system/pages/home/widgets/home.dart';
+import 'package:one_gate_system/pages/home/widgets/header.dart';
 import 'package:one_gate_system/responsive.dart';
 
 class HomePage2 extends StatelessWidget {
