@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:one_gate_system/pages/home/widgets/body.dart';
+import 'package:one_gate_system/pages/home/widgets/footer.dart';
+import 'package:one_gate_system/pages/home/widgets/home.dart';
 import 'package:one_gate_system/responsive.dart';
-import 'package:one_gate_system/shared/helper.dart';
 
 class HomePage2 extends StatelessWidget {
   const HomePage2({super.key});
@@ -27,7 +29,7 @@ class HomePage2 extends StatelessWidget {
               // Header
               Expanded(
                 flex: 1,
-                child: HomeHeader(size: size, mobileMode: true, text: 'Mobile'),
+                child: HomeHeader(size: size, mobileMode: true),
               ),
               // Body
               Expanded(
@@ -46,7 +48,7 @@ class HomePage2 extends StatelessWidget {
               // Header
               Expanded(
                 flex: 1,
-                child: HomeHeader(size: size, tabletMode: true, text: 'Tablet'),
+                child: HomeHeader(size: size, tabletMode: true),
               ),
               // Body
               Expanded(
@@ -68,8 +70,7 @@ class HomePage2 extends StatelessWidget {
                 // Header
                 Expanded(
                   flex: 1,
-                  child: HomeHeader(
-                      size: size, desktopMode: true, text: 'Desktop'),
+                  child: HomeHeader(size: size, desktopMode: true),
                 ),
                 // Body
                 Expanded(
@@ -84,347 +85,6 @@ class HomePage2 extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class HomeHeader extends StatelessWidget {
-  const HomeHeader({
-    super.key,
-    required this.size,
-    this.mobileMode = false,
-    this.tabletMode = false,
-    this.desktopMode = false,
-    this.text = 'Desktop',
-  });
-
-  final Size size;
-  final bool mobileMode;
-  final bool tabletMode;
-  final bool desktopMode;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    var h = size.height / 100;
-    var w = size.width / 100;
-    // var titleText = text.isNotEmpty ? ' - $text' : text;
-    var mode = '';
-    if (mobileMode) {
-      mode = 'Mobile';
-    } else if (tabletMode) {
-      mode = 'Tablet';
-    } else if (desktopMode) {
-      mode = 'Desktop';
-    }
-
-    print('mode: $mode');
-
-    return Container(
-      color: Colors.transparent,
-      child: Padding(
-        padding: EdgeInsets.all(w * 1),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            textHelper(mobileMode ? 'OGS' : 'One Gate System',
-                size: 30.0,
-                color: Colors.white,
-                shadows: [
-                  const Shadow(
-                    blurRadius: 20.0,
-                    color: Colors.white,
-                    offset: Offset(0.0, 0.0),
-                  )
-                ]),
-            if (mobileMode)
-              const Icon(Icons.menu, size: 40, color: Colors.white)
-            else
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple,
-                  elevation: 10.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
-                onPressed: () {},
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: h * 1),
-                  child: textHelper('Login', size: 17.0, color: Colors.white),
-                ),
-              ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class HomeBody extends StatelessWidget {
-  const HomeBody({
-    super.key,
-    required this.size,
-    this.isMobile = false,
-    this.isTablet = false,
-    this.isDesktop = false,
-  });
-
-  final Size size;
-  final bool isMobile;
-  final bool isTablet;
-  final bool isDesktop;
-
-  @override
-  Widget build(BuildContext context) {
-    var h = size.height / 100;
-    var w = size.width / 100;
-
-    if (isMobile) {
-      return Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            textHelper('One Gate System',
-                size: 70,
-                color: Colors.white,
-                weight: FontWeight.bold,
-                shadows: [
-                  const Shadow(
-                    blurRadius: 20.0,
-                    color: Colors.black87,
-                    offset: Offset(0.0, 0.0),
-                  )
-                ]),
-            const SizedBox(height: 3),
-            textHelper('one stop solution',
-                size: 25,
-                color: Colors.grey.shade200,
-                shadows: [
-                  const Shadow(
-                    blurRadius: 20.0,
-                    color: Colors.black87,
-                    offset: Offset(0.0, 0.0),
-                  )
-                ]),
-            const SizedBox(height: 25),
-            Container(
-              // color: Colors.white70,
-              color: Colors.transparent,
-              height: 50, // h * 10,
-              width: double.infinity, // w * 80,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          hintText: 'putinela.romario@gmail.com',
-                        ),
-                        onChanged: (value) {},
-                      ),
-                    ),
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.purple,
-                      elevation: 10.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15),
-                      child:
-                          textHelper('Daftar', size: 17.0, color: Colors.white),
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
-      );
-    } else {
-      return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          textHelper('One Gate System',
-              size: 70,
-              color: Colors.white,
-              weight: FontWeight.bold,
-              shadows: [
-                const Shadow(
-                  blurRadius: 20.0,
-                  color: Colors.black87,
-                  offset: Offset(0.0, 0.0),
-                )
-              ]),
-          const SizedBox(height: 3),
-          textHelper('one stop solution',
-              size: 25,
-              color: Colors.grey.shade200,
-              shadows: [
-                const Shadow(
-                  blurRadius: 20.0,
-                  color: Colors.black87,
-                  offset: Offset(0.0, 0.0),
-                )
-              ]),
-          const SizedBox(height: 25),
-          Container(
-            // color: Colors.white70,
-            color: Colors.transparent,
-            // width: w * (isDesktop ? 35 : 50),
-            width: isDesktop ? 400 : 400,
-            child: Row(
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.only(right: w * 0.5),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        hintText: 'putinela.romario@gmail.com',
-                      ),
-                      onChanged: (value) {},
-                    ),
-                  ),
-                ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purple,
-                    elevation: 10.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                  ),
-                  onPressed: () {},
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: h * 1.5),
-                    child:
-                        textHelper('Daftar', size: 17.0, color: Colors.white),
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
-      );
-    }
-    //else {
-    // return Column(
-    //   mainAxisAlignment: MainAxisAlignment.center,
-    //   crossAxisAlignment: CrossAxisAlignment.center,
-    //   children: [
-    //     textHelper('One Gate System',
-    //         size: 70,
-    //         color: Colors.white,
-    //         weight: FontWeight.bold,
-    //         shadows: [
-    //           const Shadow(
-    //             blurRadius: 20.0,
-    //             color: Colors.black87,
-    //             offset: Offset(0.0, 0.0),
-    //           )
-    //         ]),
-    //     textHelper('one stop solution',
-    //         size: 25,
-    //         color: Colors.grey.shade200,
-    //         shadows: [
-    //           const Shadow(
-    //             blurRadius: 20.0,
-    //             color: Colors.black87,
-    //             offset: Offset(0.0, 0.0),
-    //           )
-    //         ]),
-    //     SizedBox(height: h * 5),
-    //     Container(
-    //       // color: Colors.white70,
-    //       color: Colors.transparent,
-    //       width: w * 35,
-    //       child: Row(
-    //         children: [
-    //           Expanded(
-    //             child: Padding(
-    //               padding: EdgeInsets.only(right: w * 0.5),
-    //               child: TextField(
-    //                 decoration: InputDecoration(
-    //                   filled: true,
-    //                   fillColor: Colors.white,
-    //                   border: OutlineInputBorder(
-    //                     borderRadius: BorderRadius.circular(10),
-    //                   ),
-    //                   hintText: 'putinela.romario@gmail.com',
-    //                 ),
-    //                 onChanged: (value) {},
-    //               ),
-    //             ),
-    //           ),
-    //           ElevatedButton(
-    //             style: ElevatedButton.styleFrom(
-    //               backgroundColor: Colors.purple,
-    //               elevation: 10.0,
-    //               shape: RoundedRectangleBorder(
-    //                 borderRadius: BorderRadius.circular(10.0),
-    //               ),
-    //             ),
-    //             onPressed: () {},
-    //             child: Padding(
-    //               padding: EdgeInsets.symmetric(vertical: h * 1.5),
-    //               child:
-    //                   textHelper('Daftar', size: 17.0, color: Colors.white),
-    //             ),
-    //           )
-    //         ],
-    //       ),
-    //     )
-    //   ],
-    // );
-    // }
-  }
-}
-
-class HomeFooter extends StatelessWidget {
-  const HomeFooter({
-    super.key,
-    required this.size,
-  });
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    var w = size.width / 100;
-    // var h = size.height / 100;
-
-    return Container(
-      // color: Colors.grey[50]?.withOpacity(.50),
-      color: Colors.transparent,
-      child: Padding(
-        padding: EdgeInsets.all(w * 1),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            textHelper('Copyright 2023 - One Gate System Team',
-                size: 15.0, color: Colors.white),
-          ],
         ),
       ),
     );
