@@ -139,7 +139,7 @@ class HomeBody extends StatelessWidget {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        hintText: 'putinela.romario@gmail.com',
+                        hintText: 'Masukan email anda',
                       ),
                       onChanged: (value) {},
                     ),
