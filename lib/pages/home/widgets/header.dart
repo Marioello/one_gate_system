@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:one_gate_system/pages/home/widgets/login.dart';
 import 'package:one_gate_system/shared/helper.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -19,8 +20,8 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var h = size.height / 100;
-    var w = size.width / 100;
+    // var h = size.height / 100;
+    // var w = size.width / 100;
     // var titleText = text.isNotEmpty ? ' - $text' : text;
     var mode = '';
     if (mobileMode) {
@@ -47,8 +48,8 @@ class HomeHeader extends StatelessWidget {
     print('hPad: $hPad\nbtnHeight: $btnHeight\n');
 
     return Container(
-      // color: Colors.transparent,
-      color: Colors.white70,
+      color: Colors.transparent,
+      // color: Colors.white70,
       child: Padding(
         padding: EdgeInsets.all(hPad),
         child: Row(
@@ -67,20 +68,7 @@ class HomeHeader extends StatelessWidget {
             if (mobileMode)
               const Icon(Icons.menu, size: 40, color: Colors.white)
             else
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple,
-                  elevation: 10.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
-                onPressed: () {},
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: btnHeight),
-                  child: textHelper('Login', size: 17.0, color: Colors.white),
-                ),
-              ),
+              WidgetLogin(btnHeight: btnHeight),
           ],
         ),
       ),
