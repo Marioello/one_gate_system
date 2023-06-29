@@ -12,8 +12,8 @@ class HomePage2 extends StatelessWidget {
   Widget build(BuildContext context) {
     // It provide us the width and height
     Size size = MediaQuery.of(context).size;
-    var w = size.width / 100;
-    var h = size.height / 100;
+    // var w = size.width / 100;
+    // var h = size.height / 100;
 
     return Scaffold(
       body: Container(
