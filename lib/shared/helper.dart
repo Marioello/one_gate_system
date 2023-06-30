@@ -9,6 +9,7 @@ Widget textHelper(
   String fontFamily = 'Montserrat-Regular',
   double? letterSpacing,
   Color color = Colors.black,
+  List<Shadow>? shadows,
   dynamic onTap,
 }) {
   ///
@@ -21,6 +22,7 @@ Widget textHelper(
       fontFamily: fontFamily,
       letterSpacing: letterSpacing,
       color: color,
+      shadows: shadows,
     ),
   );
 }

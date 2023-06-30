@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:one_gate_system/pages/home/home.dart';
 import 'package:one_gate_system/pages/dashboard/layout.dart';
 import 'package:one_gate_system/models/user.dart';
+import 'package:one_gate_system/pages/home/home2.dart';
 import 'package:provider/provider.dart';
 
 class Wrapper extends StatelessWidget {
@@ -12,7 +12,7 @@ class Wrapper extends StatelessWidget {
     final user = Provider.of<UserAuth?>(context);
 
     if (user == null) {
-      return const HomePage();
+      return const HomePage2();
     } else {
       return const DashboardLayout();
     }
