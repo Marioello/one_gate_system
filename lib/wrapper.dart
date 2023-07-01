@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:one_gate_system/pages/page_wrapper.dart';
-import 'package:one_gate_system/models/user.dart';
-import 'package:one_gate_system/pages/home/home.dart';
 import 'package:provider/provider.dart';
+
+import 'models/user.dart';
+import 'pages/home/home.dart';
+import 'pages/page_wrapper.dart';
 
 class Wrapper extends StatelessWidget {
   const Wrapper({super.key});

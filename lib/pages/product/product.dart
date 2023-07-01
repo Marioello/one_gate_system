@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:one_gate_system/models/member.dart';
-import 'package:one_gate_system/models/product.dart';
-import 'package:one_gate_system/pages/product/components/product_card.dart';
-import 'package:one_gate_system/pages/product/your_product.dart';
-import 'package:one_gate_system/shared/constants.dart';
-import 'package:one_gate_system/shared/widgets/header.dart';
-import 'package:one_gate_system/shared/helper.dart';
+
+import '../../models/member.dart';
+import '../../models/product.dart';
+import '../../shared/constants.dart';
+import '../../shared/helper.dart';
+import '../components/header.dart';
+import 'components/product_card.dart';
+import 'your_product.dart';
 
 class PageProduct extends StatelessWidget {
   const PageProduct({super.key, required this.memberList});

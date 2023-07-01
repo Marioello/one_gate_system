@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../responsive.dart';
+import '../components/responsive.dart';
 import '../../shared/helper.dart';
 import 'widgets/body.dart';
 import 'widgets/footer.dart';

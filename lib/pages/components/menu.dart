@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:one_gate_system/pages/market_plan/mission.dart';
 
 import '../../models/basic_tile.dart';
 import '../../models/member.dart';
 import '../../shared/constants.dart';
 import '../../shared/helper.dart';
-import '../../shared/widgets/fast_track.dart';
-import '../dashboard/components/dashboard2.dart';
+import '../dashboard/components/dashboard.dart';
 import '../market_plan/fast_track.dart';
+import '../market_plan/mission.dart';
 import '../product/product.dart';
 
 class WidgetMenu extends StatelessWidget {
@@ -40,7 +39,7 @@ class WidgetMenu extends StatelessWidget {
                     title: textHelper('Marketing Plan', size: fntSizeDef16),
                     children: [
                       ListTile(
-                        onTap: () => funct(3),
+                        onTap: () => funct(2),
                         title: textHelper('   Fast Track', size: fntSizeDef16),
                       ),
                       ListTile(
@@ -48,7 +47,7 @@ class WidgetMenu extends StatelessWidget {
                         title: textHelper('   Matrix', size: fntSizeDef16),
                       ),
                       ListTile(
-                        onTap: () => funct(4),
+                        onTap: () => funct(3),
                         title: textHelper('   Missions', size: fntSizeDef16),
                       ),
                     ],
@@ -71,11 +70,10 @@ class WidgetMenu extends StatelessWidget {
 /// Page list
 Widget pages(int selectedPage, List<Member> memberList) {
   final pages = [
-    PageDashboard2(memberList: memberList),
+    PageDashboard(memberList: memberList),
     PageProduct(memberList: memberList),
-    FastTrackWidget(memberList: memberList),
-    FastTrackPage(memberList: memberList),
-    const MissionPage(),
+    PageFasttrack(memberList: memberList),
+    const PageMission(),
   ];
   return pages[selectedPage];
 }

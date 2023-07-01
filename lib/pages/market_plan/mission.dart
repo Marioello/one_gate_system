@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../shared/constants.dart';
 import '../../shared/helper.dart';
-import '../../shared/widgets/header.dart';
+import '../components/header.dart';
 
-class MissionPage extends StatelessWidget {
-  const MissionPage({super.key, this.isSideItem = false});
+class PageMission extends StatelessWidget {
+  const PageMission({super.key, this.isSideItem = false});
 
   final bool isSideItem;
 

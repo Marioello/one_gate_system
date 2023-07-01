@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:one_gate_system/models/member.dart';
-import 'package:one_gate_system/pages/market_plan/fast_track.dart';
-import 'package:one_gate_system/pages/product/your_product.dart';
-import 'package:one_gate_system/shared/widgets/header.dart';
 
-class PageDashboard2 extends StatelessWidget {
-  const PageDashboard2({super.key, required this.memberList});
+import '../../../models/member.dart';
+import '../../components/header.dart';
+import '../../market_plan/fast_track.dart';
+import '../../product/your_product.dart';
+
+class PageDashboard extends StatelessWidget {
+  const PageDashboard({super.key, required this.memberList});
 
   final List<Member> memberList;
 
@@ -36,7 +37,7 @@ class PageDashboard2 extends StatelessWidget {
           Expanded(
             flex: 2,
             // child: FastTrackWidget(memberList: memberList),
-            child: FastTrackPage(memberList: memberList, isSideItem: true),
+            child: PageFasttrack(memberList: memberList, isSideItem: true),
           )
         ],
       ),

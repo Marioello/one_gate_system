@@ -3,11 +3,11 @@ import 'package:intl/intl.dart';
 
 import '../../models/member.dart';
 import '../../shared/helper.dart';
-import '../../shared/widgets/header.dart';
+import '../components/header.dart';
 import 'mission.dart';
 
-class FastTrackPage extends StatelessWidget {
-  const FastTrackPage(
+class PageFasttrack extends StatelessWidget {
+  const PageFasttrack(
       {super.key, required this.memberList, this.isSideItem = false});
 
   final List<Member> memberList;
@@ -92,7 +92,7 @@ class FastTrackPage extends StatelessWidget {
                       if (!isSideItem)
                         const Expanded(
                           flex: 2,
-                          child: MissionPage(isSideItem: true),
+                          child: PageMission(isSideItem: true),
                         ),
                     ],
                   ),
