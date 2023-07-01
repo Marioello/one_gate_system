@@ -8,16 +8,16 @@ import '../../shared/constants.dart';
 import '../../shared/helper.dart';
 import '../components/menu.dart';
 
-class DashboardLayout2 extends StatefulWidget {
-  const DashboardLayout2({super.key, this.showHeader = true});
+class DashboardLayout extends StatefulWidget {
+  const DashboardLayout({super.key, this.showHeader = true});
 
   final bool showHeader;
 
   @override
-  State<DashboardLayout2> createState() => _DashboardLayout2State();
+  State<DashboardLayout> createState() => _DashboardLayoutState();
 }
 
-class _DashboardLayout2State extends State<DashboardLayout2> {
+class _DashboardLayoutState extends State<DashboardLayout> {
   AuthService auth = AuthService();
   int selectedPage = 0;
   bool isLoading = false;
