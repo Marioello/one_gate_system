@@ -1,11 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:one_gate_system/config/firebase.dart';
-import 'package:one_gate_system/models/user.dart';
-import 'package:one_gate_system/services/auth.dart';
-import 'package:one_gate_system/wrapper.dart';
 import 'package:provider/provider.dart';
+
+import 'config/firebase.dart';
+import 'models/user.dart';
+import 'services/auth.dart';
+import 'wrapper.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

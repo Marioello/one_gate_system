@@ -1,36 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:one_gate_system/models/api_response.dart';
-import 'package:one_gate_system/models/member.dart';
-import 'package:one_gate_system/services/auth.dart';
-import 'package:one_gate_system/shared/constants.dart';
-import 'package:one_gate_system/shared/helper.dart';
 
-class DashboardLayout extends StatefulWidget {
-  const DashboardLayout({super.key, this.showHeader = true});
+import '../../models/api_response.dart';
+import '../../models/basic_tile.dart';
+import '../../models/member.dart';
+import '../../services/auth.dart';
+import '../../shared/constants.dart';
+import '../../shared/helper.dart';
+import '../components/menu.dart';
+
+class DashboardLayout2 extends StatefulWidget {
+  const DashboardLayout2({super.key, this.showHeader = true});
 
   final bool showHeader;
 
   @override
-  State<DashboardLayout> createState() => _DashboardLayoutState();
+  State<DashboardLayout2> createState() => _DashboardLayout2State();
 }
 
-class _DashboardLayoutState extends State<DashboardLayout> {
+class _DashboardLayout2State extends State<DashboardLayout2> {
   AuthService auth = AuthService();
   int selectedPage = 0;
   bool isLoading = false;
 
-  /// Fasttrack
-
   late APIResponse<List<Member>> getMbr0;
-  List<Member> getMbr = [];
+  List<Member> memberList = [];
 
   Future<void> _getMember() async {
     setState(() => isLoading = true);
 
     getMbr0 = await Member.getMember();
-    getMbr = getMbr0.data ?? [];
+    memberList = getMbr0.data ?? [];
 
     setState(() => isLoading = false);
+  }
+
+  Widget buildTile(BasicTile tile) {
+    if (tile.tiles.isEmpty) {
+      return ListTile(
+        title: textHelper(tile.title),
+        onTap: () {
+          if (tile.pageNo == -1) {
+            auth.signOut();
+          } else if (tile.pageNo == 31) {
+            setState(() => selectedPage = 2);
+          } else {
+            setState(() => selectedPage = tile.pageNo);
+          }
+        },
+      );
+    } else {
+      return ExpansionTile(
+        title: Text(tile.title),
+        children: tile.tiles.map((tile) => buildTile(tile)).toList(),
+      );
+    }
   }
 
   @override
@@ -41,31 +64,11 @@ class _DashboardLayoutState extends State<DashboardLayout> {
 
   @override
   Widget build(BuildContext context) {
-    var listMenu = [
-      ListTile(
-        title: textHelper('Beranda'),
-        onTap: () => setState(() => selectedPage = 0),
-      ),
-      ListTile(
-        title: textHelper('Produk'),
-        onTap: () => setState(() => selectedPage = 1),
-      ),
-      ListTile(
-        title: textHelper('Marketing Plan'),
-        onTap: () {},
-      ),
-      ListTile(
-        title: textHelper('Logout'),
-        onTap: () => auth.signOut(),
-      ),
-    ];
-
-    ///
     return Scaffold(
-      // appBar: AppBar(),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          /// Sidebar
           Expanded(
             flex: 2,
             child: Container(
@@ -94,7 +97,7 @@ class _DashboardLayoutState extends State<DashboardLayout> {
                     child: Align(
                       alignment: Alignment.topLeft,
                       child: textHelper('Hi Customer! - 1',
-                          size: fntSizeDefault1, weight: FontWeight.bold),
+                          size: fntSizeDef16, weight: FontWeight.bold),
                     ),
                   ),
                   const SizedBox(height: 5.0),
@@ -108,19 +111,19 @@ class _DashboardLayoutState extends State<DashboardLayout> {
                   ),
                   const SizedBox(height: 30.0),
                   Expanded(
-                    child: ListView.separated(
-                      itemBuilder: (context, index) => listMenu[index],
-                      separatorBuilder: (context, index) => const Divider(),
-                      itemCount: listMenu.length,
+                    child: ListView(
+                      children: basicTiles.map(buildTile).toList(),
                     ),
-                  ),
+                  )
                 ],
               ),
             ),
           ),
+
+          /// Pages
           Expanded(
             flex: 10,
-            child: pages(selectedPage, getMbr),
+            child: pages(selectedPage, memberList),
           ),
         ],
       ),

@@ -1,8 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:one_gate_system/pages/dashboard/layout.dart';
+import 'package:one_gate_system/pages/page_wrapper.dart';
 import 'package:one_gate_system/models/user.dart';
-import 'package:one_gate_system/pages/home/home2.dart';
+import 'package:one_gate_system/pages/home/home.dart';
 import 'package:provider/provider.dart';
 
 class Wrapper extends StatelessWidget {
@@ -11,14 +10,12 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserAuth?>(context);
-    if (kDebugMode) {
-      print('User: $user');
-    }
 
     if (user == null) {
-      return const HomePage2();
+      return const HomePage();
     } else {
-      return const DashboardLayout();
+      // return const DashboardLayout2();
+      return const PageWrapper();
     }
   }
 }

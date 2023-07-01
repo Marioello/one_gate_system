@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:one_gate_system/models/member.dart';
+import 'package:one_gate_system/pages/market_plan/fast_track.dart';
 import 'package:one_gate_system/pages/product/your_product.dart';
-import 'package:one_gate_system/shared/widgets/fast_track.dart';
 import 'package:one_gate_system/shared/widgets/header.dart';
 
-class PageDashboard extends StatelessWidget {
-  const PageDashboard({super.key, required this.memberList});
+class PageDashboard2 extends StatelessWidget {
+  const PageDashboard2({super.key, required this.memberList});
 
   final List<Member> memberList;
 
@@ -15,12 +15,12 @@ class PageDashboard extends StatelessWidget {
     var w = size.width / 100;
 
     ///
-    return Row(
-      children: [
-        Expanded(
-          flex: 8,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 20.0),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 20.0),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 8,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -33,12 +33,13 @@ class PageDashboard extends StatelessWidget {
               ],
             ),
           ),
-        ),
-        Expanded(
-          flex: 2,
-          child: FastTrackWidget(memberList: memberList),
-        )
-      ],
+          Expanded(
+            flex: 2,
+            // child: FastTrackWidget(memberList: memberList),
+            child: FastTrackPage(memberList: memberList, isSideItem: true),
+          )
+        ],
+      ),
     );
   }
 }
