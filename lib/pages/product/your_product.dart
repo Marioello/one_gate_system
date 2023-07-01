@@ -17,7 +17,7 @@ class WidgetYourProduct extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             textHelper('Produk anda',
-                size: fntSizeDefault3, weight: FontWeight.bold),
+                size: fntSizeDef20, weight: FontWeight.bold),
           ],
         ),
         const SizedBox(height: 10.0),

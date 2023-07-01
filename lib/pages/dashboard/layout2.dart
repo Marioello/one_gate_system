@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:one_gate_system/models/api_response.dart';
-import 'package:one_gate_system/models/basic_tile.dart';
-import 'package:one_gate_system/models/member.dart';
-import 'package:one_gate_system/pages/dashboard/components/dashboard.dart';
-import 'package:one_gate_system/pages/product/product.dart';
-import 'package:one_gate_system/services/auth.dart';
-import 'package:one_gate_system/shared/constants.dart';
-import 'package:one_gate_system/shared/helper.dart';
-import 'package:one_gate_system/shared/widgets/fast_track.dart';
 
-class DashboardLayout extends StatefulWidget {
-  const DashboardLayout({super.key, this.showHeader = true});
+import '../../models/api_response.dart';
+import '../../models/basic_tile.dart';
+import '../../models/member.dart';
+import '../../services/auth.dart';
+import '../../shared/constants.dart';
+import '../../shared/helper.dart';
+import '../components/menu.dart';
+
+class DashboardLayout2 extends StatefulWidget {
+  const DashboardLayout2({super.key, this.showHeader = true});
 
   final bool showHeader;
 
   @override
-  State<DashboardLayout> createState() => _DashboardLayoutState();
+  State<DashboardLayout2> createState() => _DashboardLayout2State();
 }
 
-class _DashboardLayoutState extends State<DashboardLayout> {
+class _DashboardLayout2State extends State<DashboardLayout2> {
   AuthService auth = AuthService();
   int selectedPage = 0;
   bool isLoading = false;
@@ -98,7 +97,7 @@ class _DashboardLayoutState extends State<DashboardLayout> {
                     child: Align(
                       alignment: Alignment.topLeft,
                       child: textHelper('Hi Customer! - 1',
-                          size: fntSizeDefault1, weight: FontWeight.bold),
+                          size: fntSizeDef16, weight: FontWeight.bold),
                     ),
                   ),
                   const SizedBox(height: 5.0),
@@ -130,14 +129,4 @@ class _DashboardLayoutState extends State<DashboardLayout> {
       ),
     );
   }
-}
-
-/// Page list
-Widget pages(int selectedPage, List<Member> memberList) {
-  final pages = [
-    PageDashboard(memberList: memberList),
-    PageProduct(memberList: memberList),
-    FastTrackWidget(memberList: memberList),
-  ];
-  return pages[selectedPage];
 }

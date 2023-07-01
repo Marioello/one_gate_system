@@ -1,4 +1,4 @@
-import 'package:one_gate_system/services/auth.dart';
+import '../services/auth.dart';
 
 class BasicTile {
   final int pageNo;

@@ -16,8 +16,7 @@ class Header extends StatelessWidget {
       children: [
         textHelper(title, size: 35.0, weight: FontWeight.bold),
         const SizedBox(height: 15.0),
-        if (description.isNotEmpty)
-          textHelper(description, size: fntSizeDefault),
+        if (description.isNotEmpty) textHelper(description, size: fntSizeDef14),
         if (description.isNotEmpty) const SizedBox(height: 50.0),
       ],
     );

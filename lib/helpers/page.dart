@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:one_gate_system/models/member.dart';
-import 'package:one_gate_system/pages/dashboard/layout.dart';
+
+import '../models/member.dart';
+import '../pages/components/menu.dart';
 
 class PageHelper extends StatelessWidget {
   const PageHelper(

@@ -1,58 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:one_gate_system/models/member.dart';
-import 'package:one_gate_system/shared/constants.dart';
-import 'package:one_gate_system/shared/helper.dart';
 
-class FastTrackWidget extends StatelessWidget {
-  const FastTrackWidget({super.key, required this.memberList});
+import '../../models/member.dart';
+import '../../shared/helper.dart';
+import '../../shared/widgets/header.dart';
+
+class FastTrackPage extends StatelessWidget {
+  const FastTrackPage(
+      {super.key, required this.memberList, this.isSideItem = false});
 
   final List<Member> memberList;
+  final bool isSideItem;
 
   @override
   Widget build(BuildContext context) {
+    // var size = MediaQuery.of(context).size;
+    // var w = size.width / 100;
+
+    ///
     return Row(
       children: [
         Expanded(
-          flex: 8,
+          flex: isSideItem ? 2 : 12,
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 20.0),
+            padding: isSideItem
+                ? const EdgeInsets.fromLTRB(
+                    10.0, 0.0, 0.0, 20.0) // When called as side item
+                : const EdgeInsets.fromLTRB(
+                    20.0, 30.0, 20.0, 20.0), // When called as page
             child: Column(
+              crossAxisAlignment: isSideItem
+                  ? CrossAxisAlignment.center // When called as side item
+                  : CrossAxisAlignment.start, // When called as page
               children: [
-                Column(
-                  children: [
-                    textHelper('Tier - Fast Track', weight: FontWeight.bold),
-                    const SizedBox(height: 20.0),
-                    Container(
-                      height: 150,
-                      width: 150,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/tiers/tier-one.png',
-                          ),
-                          opacity: 0.7,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 30.0),
+                if (isSideItem)
+                  textHelper('Fast track', size: 30, weight: FontWeight.bold)
+                else
+                  const Header(
+                    title: 'Fast track',
+                    description:
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer orci velit, varius quis urna eu, lobortis finibus quam.',
+                  ),
+                if (isSideItem) const SizedBox(height: 20),
                 Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // if (widget.showHeader)
-                      textHelper('Fast Track', weight: FontWeight.bold),
-                      // if (widget.showHeader)
                       Padding(
                         padding: const EdgeInsets.all(10.0),
                         // child: textHelper('Last updated:\n${DateTime.now()}',
                         //     size: fntSizeDefault0, style: FontStyle.italic),
                         child: textHelper(
-                            'List ini di-update berkala tiap 5 menit.',
-                            size: fntSizeDef12,
+                            '* List ini di-update berkala tiap 5 menit.',
+                            size: 15,
+                            color: Colors.red,
                             style: FontStyle.italic),
                       ),
                       Expanded(
@@ -88,10 +90,6 @@ class FastTrackWidget extends StatelessWidget {
             ),
           ),
         ),
-        Expanded(
-          flex: 2,
-          child: FastTrackWidget(memberList: memberList),
-        )
       ],
     );
   }

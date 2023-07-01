@@ -3,7 +3,7 @@ import 'package:one_gate_system/shared/constants.dart';
 
 Widget textHelper(
   String text, {
-  double size = fntSizeDefault,
+  double size = fntSizeDef14,
   FontWeight weight = FontWeight.normal,
   FontStyle style = FontStyle.normal,
   String fontFamily = 'Montserrat-Regular',
