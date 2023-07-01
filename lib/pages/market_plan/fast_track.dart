@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import '../../models/member.dart';
 import '../../shared/helper.dart';
 import '../../shared/widgets/header.dart';
+import 'mission.dart';
 
 class FastTrackPage extends StatelessWidget {
   const FastTrackPage(
@@ -43,46 +44,56 @@ class FastTrackPage extends StatelessWidget {
                   ),
                 if (isSideItem) const SizedBox(height: 20),
                 Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Row(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        // child: textHelper('Last updated:\n${DateTime.now()}',
-                        //     size: fntSizeDefault0, style: FontStyle.italic),
-                        child: textHelper(
-                            '* List ini di-update berkala tiap 5 menit.',
-                            size: 15,
-                            color: Colors.red,
-                            style: FontStyle.italic),
-                      ),
                       Expanded(
-                        child: memberList.isNotEmpty
-                            ? ListView.builder(
-                                itemBuilder: (context, index) {
-                                  Member m = memberList[index];
-                                  return Card(
-                                    elevation: 10.0,
-                                    child: ListTile(
-                                      title: textHelper(m.uid),
-                                      subtitle: textHelper(
-                                          DateFormat('dd-MMM-yyyy hh:mm:ss.sss')
-                                              .format(m.joinDate),
-                                          color: Colors.grey,
-                                          style: FontStyle.italic),
+                        flex: 10,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              // child: textHelper('Last updated:\n${DateTime.now()}',
+                              //     size: fntSizeDefault0, style: FontStyle.italic),
+                              child: textHelper(
+                                  '* List ini di-update berkala tiap 5 menit.',
+                                  size: 15,
+                                  color: Colors.red,
+                                  style: FontStyle.italic),
+                            ),
+                            Expanded(
+                              child: memberList.isNotEmpty
+                                  ? ListView.builder(
+                                      itemBuilder: (context, index) {
+                                        Member m = memberList[index];
+                                        return Card(
+                                          elevation: 10.0,
+                                          child: ListTile(
+                                            title: textHelper(m.uid),
+                                            subtitle: textHelper(
+                                                DateFormat(
+                                                        'dd-MMM-yyyy hh:mm:ss.sss')
+                                                    .format(m.joinDate),
+                                                color: Colors.grey,
+                                                style: FontStyle.italic),
+                                          ),
+                                        );
+                                      },
+                                      itemCount: memberList.length,
+                                    )
+                                  : const Center(
+                                      child: CircularProgressIndicator(),
                                     ),
-                                  );
-                                },
-                                itemCount: memberList.length,
-                              )
-                            : const Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  CircularProgressIndicator(),
-                                ],
-                              ),
+                            ),
+                          ],
+                        ),
                       ),
+                      if (!isSideItem)
+                        const Expanded(
+                          flex: 2,
+                          child: MissionPage(isSideItem: true),
+                        ),
                     ],
                   ),
                 ),

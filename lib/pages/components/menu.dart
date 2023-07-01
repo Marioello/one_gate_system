@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:one_gate_system/pages/market_plan/mission.dart';
 
 import '../../models/basic_tile.dart';
 import '../../models/member.dart';
@@ -16,39 +17,53 @@ class WidgetMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.amber[100],
-      child: ListView(
-        children: [
-          ListTile(
-            onTap: () => funct(0),
-            title: textHelper('Beranda', size: fntSizeDef16),
-          ),
-          const Divider(),
-          ListTile(
-            onTap: () => funct(1),
-            title: textHelper('Produk', size: fntSizeDef16),
-          ),
-          const Divider(),
-          Theme(
-            data: ThemeData().copyWith(dividerColor: Colors.transparent),
-            child: ExpansionTile(
-              title: textHelper('Marketing Plan', size: fntSizeDef16),
+    return Column(
+      children: [
+        Expanded(
+          child: Container(
+            color: Colors.amber[100],
+            child: ListView(
               children: [
                 ListTile(
-                  onTap: () => funct(3),
-                  title: textHelper('   Fast Track', size: fntSizeDef16),
+                  onTap: () => funct(0),
+                  title: textHelper('Beranda', size: fntSizeDef16),
+                ),
+                const Divider(),
+                ListTile(
+                  onTap: () => funct(1),
+                  title: textHelper('Produk', size: fntSizeDef16),
+                ),
+                const Divider(),
+                Theme(
+                  data: ThemeData().copyWith(dividerColor: Colors.transparent),
+                  child: ExpansionTile(
+                    title: textHelper('Marketing Plan', size: fntSizeDef16),
+                    children: [
+                      ListTile(
+                        onTap: () => funct(3),
+                        title: textHelper('   Fast Track', size: fntSizeDef16),
+                      ),
+                      ListTile(
+                        onTap: () {},
+                        title: textHelper('   Matrix', size: fntSizeDef16),
+                      ),
+                      ListTile(
+                        onTap: () => funct(4),
+                        title: textHelper('   Missions', size: fntSizeDef16),
+                      ),
+                    ],
+                  ),
+                ),
+                const Divider(),
+                ListTile(
+                  onTap: () => auth.signOut(),
+                  title: textHelper('Logout', size: fntSizeDef16),
                 ),
               ],
             ),
           ),
-          const Divider(),
-          ListTile(
-            onTap: () => auth.signOut(),
-            title: textHelper('Logout', size: fntSizeDef16),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -60,6 +75,7 @@ Widget pages(int selectedPage, List<Member> memberList) {
     PageProduct(memberList: memberList),
     FastTrackWidget(memberList: memberList),
     FastTrackPage(memberList: memberList),
+    const MissionPage(),
   ];
   return pages[selectedPage];
 }
