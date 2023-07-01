@@ -11,6 +11,7 @@ class Member {
   final DateTime joinDate;
   final DateTime? registerDate;
   final int tier;
+  late String maskedEmail;
 
   Member({
     required this.id,
@@ -18,16 +19,17 @@ class Member {
     required this.joinDate,
     required this.registerDate,
     required this.tier,
+    this.maskedEmail = '',
   });
 
   factory Member.fromJson(Map<String, dynamic> json) {
     return Member(
-      id: int.parse(json['id']),
-      uid: json['uid'],
-      joinDate: DateTime.parse(json['joindate']),
-      registerDate: DateTime.parse(json['registerdate']),
-      tier: int.parse(json['tier']),
-    );
+        id: int.parse(json['id']),
+        uid: json['uid'],
+        joinDate: DateTime.parse(json['joindate']),
+        registerDate: DateTime.parse(json['registerdate']),
+        tier: int.parse(json['tier']),
+        maskedEmail: json['maskedemail']);
   }
 
   Map<String, dynamic> toJson() {
