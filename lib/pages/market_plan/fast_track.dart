@@ -70,7 +70,7 @@ class PageFasttrack extends StatelessWidget {
                                         return Card(
                                           elevation: 10.0,
                                           child: ListTile(
-                                            title: textHelper(m.uid),
+                                            title: textHelper(m.maskedEmail),
                                             subtitle: textHelper(
                                                 DateFormat(
                                                         'dd-MMM-yyyy hh:mm:ss.sss')
